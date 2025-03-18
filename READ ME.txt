@@ -1,0 +1,70 @@
+ # Seek Job Scraper
+
+## Overview
+This project is a web scraper designed to collect job listings from **Seek** using Selenium. It extracts job details such as title, company name, location, classification, profession, salary, and posting date. The scraped data is saved into a CSV file for further analysis.
+
+## Features
+- Automates job search on Seek
+- Filters results based on job classification and date range
+- Extracts key job details such as title, company, salary, and location
+- Saves scraped data in a structured CSV file
+- Handles pagination to scrape multiple pages
+
+## Prerequisites
+Ensure you have the following installed:
+- **Python 3.x**
+- **Google Chrome** (latest version)
+- **ChromeDriver** (Managed automatically by `webdriver-manager`)
+- Required Python libraries:
+  ```sh
+  pip install selenium pandas webdriver-manager
+  ```
+
+## How to Use
+1. **Clone or Download the Repository**
+   ```sh
+   git clone <repository_url>
+   cd seek-job-scraper
+   ```
+2. **Run the Script**
+   ```sh
+   python seek_scraper.py
+   ```
+3. **Modify Search Parameters**
+   - Edit the `search_bar.send_keys("General Practitioner")` line to change job search keywords.
+   - Modify classification selection if needed.
+
+4. **View the Results**
+   - The scraped data is saved in `Scraped_data.csv`.
+   - Open the CSV file in Excel, Google Sheets, or a Python DataFrame for further analysis.
+
+## Code Structure
+- `setup_driver()`: Initializes the Selenium WebDriver.
+- `calculate_date_from_hours_ago(hours_ago)`: Converts relative time (e.g., '5h ago') to a standard date format.
+- **Web Scraping Steps:**
+  1. Navigate to Seek
+  2. Input search keywords
+  3. Select classification (optional)
+  4. Filter by date
+  5. Extract job details
+  6. Handle pagination
+  7. Save data to CSV
+
+## Limitations
+- **Website Structure Changes:** Seek may update its website, requiring XPath adjustments.
+- **CAPTCHA & Bot Detection:** Running too many requests may trigger CAPTCHA or block access.
+- **Pagination Limit:** The script is set to scrape up to 50 pages but can be adjusted.
+
+## Future Enhancements
+- Implement **proxy rotation** and **headless browsing** for stealth.
+- Improve **error handling** and logging.
+- Add **database support** to store job data.
+- Enhance search customization (e.g., location filters, salary range).
+
+## Disclaimer
+This scraper is intended for educational and research purposes only. Ensure compliance with Seek's terms of service before running the script.
+
+---
+
+Enjoy scraping job data and analyzing job market trends! 🚀
+
